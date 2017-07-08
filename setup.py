@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 from distutils.core import setup
 import setuptools
-setup(name='ovfexporter',
+setup(
+      name='ovfexporter',
       version='1.0.0',
       description="Export a vCenter VM's vmdks and ovf descriptor to local file system",
       author='Douglas Rohde',
@@ -23,16 +24,14 @@ setup(name='ovfexporter',
           'Development Status :: 4 - Beta',
 
           # Indicate who your project is intended for
-          'Intended Audience :: Developers, Sys Admins',
-          'Topic :: Other/Nonlisted Topic :: Export Tools',
+          'Intended Audience :: System Administrators',
+          'Topic :: Other/Nonlisted Topic',
 
           # Pick your license as you wish (should match "license" above)
-          "License :: MIT License",
+	  'License :: OSI Approved :: MIT License',
+	  'Programming Language :: Python :: 2.7'
 
-          # Specify the Python versions you support here. In particular, ensure
-          # that you indicate whether you support Python 2, Python 3 or both.
-          'Programming Language :: Python :: 2.7',
 
-      ]
+      ],
 
       )
