@@ -18,30 +18,26 @@ $ pip install ovfexporter
 ## Running
 All arguments and parameters are specified in the help menu when running the script
 
-    $ ovfexport -h
-    usage: amiupload [-h] -r AWS_REGIONS [AWS_REGIONS ...] -a AWS_PROFILE -b
-                 S3_BUCKET -f VMDK_UPLOAD_FILE [-n AMI_NAME] [-d DIRECTORY]
+    $ usage: ovfexport [-h] -i VCENTER_HOST -u VCENTER_USER -p VCENTER_PASS -n
+                 VM_NAME [-d DIRECTORY] [-w VCENTER_PORT]
 
-    Uploads specified VMDK file to AWS s3 bucket, and converts to AMI
+    Converts, and downloads a vm by name from vCenter to OVF in specified
+    directory, then uploads the image as an AMI. AMI will be uploaded using
+    specified AWS profile, to specified regions.
 
     optional arguments:
       -h, --help            show this help message and exit
-      -r AWS_REGIONS [AWS_REGIONS ...], --aws_regions AWS_REGIONS [AWS_REGIONS ...]
-                            list of AWS regions where uploaded ami should be
-                            copied. Available regions: ['us-east-1', 'us-east-2',
-                            'us-west-1', 'us-west-2', 'ca-central-1', 'eu-west-1',
-                            'eu-central-1', 'eu-west-2', 'ap-northeast-1', 'ap-
-                            northeast-2', 'ap-southeast-2', 'ap-south-1', 'sa-
-                            east-1'].
-      -a AWS_PROFILE, --aws_profile AWS_PROFILE
-                            AWS profile name to use for aws cli commands
-      -b S3_BUCKET, --s3_bucket S3_BUCKET
-                            The aws_bucket of the profile to upload and save vmdk
-                            to
-      -f VMDK_UPLOAD_FILE, --vmdk_upload_file VMDK_UPLOAD_FILE
-                            The file to upload if executing
-      -n AMI_NAME, --ami_name AMI_NAME
-                            The name to give to the uploaded ami. Defaults to the
-                            name of the file
+      -i VCENTER_HOST, --vcenter_host VCENTER_HOST
+                            Hostname or Ip of vCenter API of VM
+      -u VCENTER_USER, --vcenter_user VCENTER_USER
+                            Username for vCenter authentication
+      -p VCENTER_PASS, --vcenter_pass VCENTER_PASS
+                            Password for authentication to vCenter API
+      -n VM_NAME, --vm_name VM_NAME
+                            Name of the VM in vCenter
       -d DIRECTORY, --directory DIRECTORY
-                            Directory to save temp aws config upload files
+                            Directory to save the vmdk temp file (defaults to temp
+                            location
+      -w VCENTER_PORT, --vcenter_port VCENTER_PORT
+                            Port to use for communication to vcenter api. Default
+                            is 443
